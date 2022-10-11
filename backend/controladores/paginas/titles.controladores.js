@@ -1,18 +1,12 @@
 const { titles } = require("../../basededatos")
-import { TitleNavbar } from "../../classModel/footer/tittle"
+
 
 
 const ALLTITLES = {
     getTitles: async (req, res) => {
 
-
-
         try {
-
-
-            const dato: TitleNavbar[] = await titles.findAll()
-
-
+            const dato = await titles.findAll()
             res.send(dato)
         } catch (error) {
             return res.json({ message: error.message })
