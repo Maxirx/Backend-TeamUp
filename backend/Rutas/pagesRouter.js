@@ -159,7 +159,7 @@ pagesRouter.route("/titleAreas/id")
     .delete()
 
 pagesRouter.route("/descriptionAreas")
-    .get(getDescriptionAreas)  //////////// MARKETING DIGITAL DISEÑO GRÁFICO Y AUDIOVISUAL
+    .get(getDescriptionAreas)
     .post(createDescriptionAreas)
 
 pagesRouter.route("/descriptionAreas/id")
