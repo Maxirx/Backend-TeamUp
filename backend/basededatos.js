@@ -13,7 +13,7 @@ const {
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${PORTDB}/${DB_NAME}?ssl=no-verify`, {
     logging: false,
-    native: false,
+    /*     native: false, */
 });
 
 try {
