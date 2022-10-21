@@ -139,7 +139,7 @@ pagesRouter.route("/areas/id")
     .put()
     .delete()
 
-pagesRouter.route("/legendAbout")
+pagesRouter.route("/legendAreas")
     .get(getLegendsAreas) /////////// TENEMOS OPORTUNIDADES EN ESTAS AREAS
     .post(createLegendsAreas)
 
