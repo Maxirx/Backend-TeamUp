@@ -12,6 +12,13 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false
+        }, fkDescriptionAreas: {
+            type: DataTypes.BIGINT,
+            references: {
+                model: "descriptionAreas",
+                key: 'id',
+                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+            }
         }
     }, {
         timestamps: false

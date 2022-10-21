@@ -26,7 +26,7 @@ const { conn } = require("./basededatos")
 
 
 
-conn.sync({ /* alter: true  */ }).then(async () => {
+conn.sync({ alter: true }).then(async () => {
     console.log("modelos sincronizados");
     app.get('/', async (request, response) => {
         return response.status(200).send({ message: `Welcome` })
