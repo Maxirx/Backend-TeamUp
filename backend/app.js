@@ -74,7 +74,7 @@ app.post('/process', parseForm, csrfProtection, function (req, res) {
 
  */
 
-app.use("/api", /* csrfProtection, */ Router);
+app.use("/api", Router);
 app.use("/api", pagesRouter)
 
 module.exports = app
