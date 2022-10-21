@@ -21,10 +21,10 @@ const ALLITEMS = {
 
         try {
             const {
-                items
+                item
             } = req.body
             const dato = await items.create({
-                items
+                items: item
 
             })
 
