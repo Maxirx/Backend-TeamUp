@@ -11,7 +11,6 @@ const { createTitleAbout, getTitleAbout } = require("../controladores/paginas/ab
 const { getDescriptionsAbout, createDescriptionsAbout } = require("../controladores/paginas/aboutTeam/descriptionsAbout.controladores");
 const { getLegendsAreas, createLegendsAreas } = require("../controladores/paginas/areas/legendAreas.controladores");
 const { getTitleAreas, createTitleAreas } = require("../controladores/paginas/areas/titleAreas.controladores");
-const { getDescriptionAreas, createDescriptionAreas } = require("../controladores/paginas/areas/descriptionAreas.controladores");
 const { getFooter, createFooter } = TODOSLOSFOOTERS
 const { getTitles, createTitles } = ALLTITLES
 const { getDescriptions, createDescriptions } = ALLDESCRIPTIONS
