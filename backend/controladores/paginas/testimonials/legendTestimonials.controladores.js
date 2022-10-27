@@ -3,7 +3,7 @@ const { legendTestimonials } = require("../../../basededatos")
 
 
 const ALLLEGENDS = {
-    getLegends: async (req, res) => {
+    getLegendsTest: async (req, res) => {
 
         try {
             const dato = await legendTestimonials.findAll()
@@ -16,7 +16,7 @@ const ALLLEGENDS = {
 
     },
 
-    createLegends: async (req, res) => {
+    createLegendsTest: async (req, res) => {
 
 
         try {

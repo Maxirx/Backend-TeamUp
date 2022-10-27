@@ -12,6 +12,9 @@ const { getDescriptionsAbout, createDescriptionsAbout } = require("../controlado
 const { getLegendsAreas, createLegendsAreas } = require("../controladores/paginas/areas/legendAreas.controladores");
 const { getTitleAreas, createTitleAreas } = require("../controladores/paginas/areas/titleAreas.controladores");
 const { getDescriptionAreas, createDescriptionAreas } = require("../controladores/paginas/areas/descriptionAreas.controladores");
+const { getTitleTest, createTitleTest } = require("../controladores/paginas/testimonials/titleTestimonials.controladores");
+const { getLegendsTest, createLegendsTest } = require("../controladores/paginas/testimonials/legendTestimonials.controladores");
+const { getDescriptionsTest, createDescriptionsTest } = require("../controladores/paginas/testimonials/descriptionsTestimonials.controladores");
 const { getFooter, createFooter } = TODOSLOSFOOTERS
 const { getTitles, createTitles } = ALLTITLES
 const { getDescriptions, createDescriptions } = ALLDESCRIPTIONS
@@ -175,6 +178,14 @@ pagesRouter.route("/descriptionAreas/id")
 
 
 
+
+/////////////////////////////// TESTIMONIOS 
+
+
+
+
+
+
 pagesRouter.route("/testimonials")
     .get(getTestimonials)
     .post(createTestimonials)
@@ -183,6 +194,37 @@ pagesRouter.route("/testimonials/id")
     .get()
     .put()
     .delete()
+
+pagesRouter.route("/legendTestimonials")
+    .get(getLegendsTest)
+    .post(createLegendsTest)
+
+pagesRouter.route("/legendTestimonials/id")
+    .get()
+    .put()
+    .delete()
+
+pagesRouter.route("/tittleTestimonials")
+    .get(getTitleTest)
+    .post(createTitleTest)
+
+pagesRouter.route("/tittleTestimonials/id")
+    .get()
+    .put()
+    .delete()
+
+pagesRouter.route("/descriptionsTest")
+    .get(getDescriptionsTest)
+    .post(createDescriptionsTest)
+
+pagesRouter.route("/descriptionsTest/id")
+    .get()
+    .put()
+    .delete()
+
+/////////////////////////////// FIN DE TESTIMONIOS
+
+
 
 
 
