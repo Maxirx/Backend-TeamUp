@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser')
 var csrf = require('csurf');
 
 
+const formulario = require("./controladores/tasks.controladores")
+const { getForm, createForm } = formulario
+
 /* const corsOptions = {
     origin: '*',
     credentials: true,
@@ -24,14 +27,17 @@ app.use(express.json());
 app.use(cookieParser())
 
 var Bpar = bodyParser.urlencoded({ extended: false })
+
 var csrfProtect = csrf({ cookie: true })
 
 app.get('/api/form', csrfProtect,
     function (req, res) {
-        res.render('send', { csrfToken: req.csrfToken() })
+        res.send([{ csrfToken: req.csrfToken() }, ["Primer Nombre"], ["Segundo Nombre"], ["Apellido"], ["Segundo Apellido"], ["Email"], ["Telefono"], , ["Pais"], ["Segundo Apellido"], ["Ciudad de Residencia"], ["Area de Voluntariado"], ["Estudios"], ["Institucion Educativa"], ["Semestre"], , ["¿Donde nos conociste?"]])
     })
 
-app.use("/api", Router);
+app.post('/process', Bpar, csrfProtect, createForm)
+
+app.use("/api", csrfProtect, Router);
 app.use("/api", pagesRouter)
 
 module.exports = app

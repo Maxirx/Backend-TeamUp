@@ -15,6 +15,7 @@ const { getDescriptionAreas, createDescriptionAreas } = require("../controladore
 const { getTitleTest, createTitleTest } = require("../controladores/paginas/testimonials/titleTestimonials.controladores");
 const { getLegendsTest, createLegendsTest } = require("../controladores/paginas/testimonials/legendTestimonials.controladores");
 const { getDescriptionsTest, createDescriptionsTest } = require("../controladores/paginas/testimonials/descriptionsTestimonials.controladores");
+const { getActionFeatures, createActionFeatures } = require("../controladores/paginas/features/actionsFeatures.controladores");
 const { getFooter, createFooter } = TODOSLOSFOOTERS
 const { getTitles, createTitles } = ALLTITLES
 const { getDescriptions, createDescriptions } = ALLDESCRIPTIONS
@@ -173,6 +174,20 @@ pagesRouter.route("/descriptionAreas/id")
 
 
 ////////////////////////// FIN DE AREAS
+
+
+///////////////////////// CARACTERISTICAS
+pagesRouter.route("/actionFeatures")
+    .get(getActionFeatures)
+    .post(createActionFeatures)
+
+pagesRouter.route("/actionFeatures/id")
+    .get()
+    .put()
+    .delete()
+
+
+///////////////////////// FIN CARACTERISTICAS
 
 
 

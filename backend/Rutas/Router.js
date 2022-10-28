@@ -4,11 +4,12 @@ const formulario = require("../controladores/tasks.controladores")
 const { getForm, createForm } = formulario
 
 var csrf = require('csurf');
-var Bpar = bodyParser.urlencoded({ extended: false })
-
-var csrfProtect = csrf({ cookie: true })
 
 
+
+
+var csrfProtection = csrf({ cookie: true })
+var parseForm = bodyParser.urlencoded({ extended: false })
 
 
 Router.route("/home")
@@ -17,9 +18,9 @@ Router.route("/home")
     })
 
 
-Router.route("/formulario", csrfProtect)
-    .get(csrfProtect)
-    .post(createForm)
+Router.route("/formulario")
+    .get(getForm)
+    .post(parseForm, csrfProtection, createForm)
 
 Router.route("/formulario/id")
     .get()
