@@ -37,7 +37,7 @@ app.get('/api/form', csrfProtect,
 
 app.post('/process', Bpar, csrfProtect, createForm)
 
-app.use("/api", csrfProtect, Router);
+app.use("/api", Router);
 app.use("/api", pagesRouter)
 
 module.exports = app
