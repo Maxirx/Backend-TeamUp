@@ -21,10 +21,10 @@ const ALLDESCRIPTIONSFEATURES = {
 
         try {
             const {
-                name
+                title
             } = req.body
             const dato = await descriptionFeatures.create({
-                name
+                title
 
             })
 

@@ -21,10 +21,10 @@ const ALLACTIONS = {
 
         try {
             const {
-                name
+                title
             } = req.body
             const dato = await actionFeatures.create({
-                name
+                title
 
             })
 
