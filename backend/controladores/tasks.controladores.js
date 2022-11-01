@@ -271,13 +271,13 @@ const formulario = {
       const eapellido = cryptr.encrypt(apellido);
       const esegundoApellido = cryptr.encrypt(segundoApellido);
       const eemail = cryptr.encrypt(email);
-      const etelefono = cryptr.encrypt(telefono);
+
       const epais = cryptr.encrypt(pais);
       const eciudadDeResidencia = cryptr.encrypt(ciudadDeResidencia);
       const eareaVoluntario = cryptr.encrypt(areaVoluntario);
       const eestudios = cryptr.encrypt(estudios);
       const einstitucionEducativa = cryptr.encrypt(institucionEducativa);
-      const esemestre = cryptr.encrypt(semestre);
+
       const emedio = cryptr.encrypt(medio);
       const nuevaPersona = await personas.create({
         primerNombre: eprimerNombre,
@@ -285,13 +285,13 @@ const formulario = {
         apellido: eapellido,
         segundoApellido: esegundoApellido,
         email: eemail,
-        telefono: etelefono,
+        telefono: telefono,
         pais: epais,
         ciudadDeResidencia: eciudadDeResidencia,
         areaVoluntario: eareaVoluntario,
         estudios: eestudios,
         institucionEducativa: einstitucionEducativa,
-        semestre: esemestre,
+        semestre: semestre,
         medio: emedio
       })
       await sendEmail(email);
