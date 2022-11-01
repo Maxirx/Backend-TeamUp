@@ -20,7 +20,7 @@ Router.route("/home")
 
 Router.route("/formulario")
     .get(getForm)
-    .post(parseForm, csrfProtection, (req, res) => { createForm(req, res) })
+    .post(createForm)
 
 Router.route("/formulario/id")
     .get()
