@@ -249,6 +249,7 @@ const formulario = {
 
   createForm: async (req, res) => {
 
+    console.log(req.params);
 
     try {
       const {
@@ -266,7 +267,6 @@ const formulario = {
         semestre,
         medio
       } = req.body
-      console.log(req.params);
       console.log(primerNombre);
       const eprimerNombre = cryptr.encrypt(primerNombre);
       const esegundoNombre = cryptr.encrypt(segundoNombre);
