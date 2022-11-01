@@ -266,6 +266,7 @@ const formulario = {
         semestre,
         medio
       } = req.params
+      console.log(req.params);
       console.log(primerNombre);
       const eprimerNombre = cryptr.encrypt(primerNombre);
       const esegundoNombre = cryptr.encrypt(segundoNombre);
