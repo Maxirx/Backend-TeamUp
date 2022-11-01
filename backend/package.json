@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cryptr": "^6.0.3",
     "csrf": "^3.1.0",
     "csurf": "^1.11.0",
     "dotenv": "^16.0.1",

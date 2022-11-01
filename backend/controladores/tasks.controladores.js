@@ -1,6 +1,9 @@
 const { personas } = require("../basededatos")
 const nodemailer = require("nodemailer");
 
+const Cryptr = require('cryptr');
+const cryptr = new Cryptr('myTotallySecretKey');
+
 const sendEmail = async (email) => {
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -236,7 +239,8 @@ const formulario = {
 
     try {
       const formularios = await personas.findAll()
-      res.json(formularios)
+      const decryptedString = cryptr.decrypt(formularios);
+      res.json(decryptedString)
     } catch (error) {
       return res.json({ message: error.message })
     }
@@ -262,20 +266,33 @@ const formulario = {
         semestre,
         medio
       } = req.body
+      const eprimerNombre = cryptr.encrypt(primerNombre);
+      const esegundoNombre = cryptr.encrypt(segundoNombre);
+      const eapellido = cryptr.encrypt(apellido);
+      const esegundoApellido = cryptr.encrypt(segundoApellido);
+      const eemail = cryptr.encrypt(email);
+      const etelefono = cryptr.encrypt(telefono);
+      const epais = cryptr.encrypt(pais);
+      const eciudadDeResidencia = cryptr.encrypt(ciudadDeResidencia);
+      const eareaVoluntario = cryptr.encrypt(areaVoluntario);
+      const eestudios = cryptr.encrypt(estudios);
+      const einstitucionEducativa = cryptr.encrypt(institucionEducativa);
+      const esemestre = cryptr.encrypt(semestre);
+      const emedio = cryptr.encrypt(medio);
       const nuevaPersona = await personas.create({
-        primerNombre,
-        segundoNombre,
-        apellido,
-        segundoApellido,
-        email,
-        telefono,
-        pais,
-        ciudadDeResidencia,
-        areaVoluntario,
-        estudios,
-        institucionEducativa,
-        semestre,
-        medio
+        primerNombre: eprimerNombre,
+        segundoNombre: esegundoNombre,
+        apellido: eapellido,
+        segundoApellido: esegundoApellido,
+        email: eemail,
+        telefono: etelefono,
+        pais: epais,
+        ciudadDeResidencia: eciudadDeResidencia,
+        areaVoluntario: eareaVoluntario,
+        estudios: eestudios,
+        institucionEducativa: einstitucionEducativa,
+        semestre: esemestre,
+        medio: emedio
       })
       await sendEmail(email);
       res.json(nuevaPersona)

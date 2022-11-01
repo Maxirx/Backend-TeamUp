@@ -32,10 +32,10 @@ var csrfProtect = csrf({ cookie: true })
 
 app.get('/api/form', csrfProtect,
     function (req, res) {
-        res.send([{ csrfToken: req.csrfToken() }, ["Primer Nombre"], ["Segundo Nombre"], ["Apellido"], ["Segundo Apellido"], ["Email"], ["Telefono"], , ["Pais"], ["Segundo Apellido"], ["Ciudad de Residencia"], ["Area de Voluntariado"], ["Estudios"], ["Institucion Educativa"], ["Semestre"], , ["¿Donde nos conociste?"]])
+        res.send([{ csrfToken: req.csrfToken() }, ["Primer Nombre"], ["Segundo Nombre"], ["Apellido"], ["Segundo Apellido"], ["Email"], ["Telefono"], ["Pais"], ["Segundo Apellido"], ["Ciudad de Residencia"], ["Area de Voluntariado"], ["Estudios"], ["Institucion Educativa"], ["Semestre"], , ["¿Donde nos conociste?"]])
     })
 
-app.post('/process', Bpar, csrfProtect, createForm)
+app.post('/api/form', Bpar, csrfProtect, createForm)
 
 app.use("/api", Router);
 app.use("/api", pagesRouter)
