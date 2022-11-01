@@ -35,7 +35,7 @@ app.get('/api/form', csrfProtect,
         res.send([{ csrfToken: req.csrfToken() }, ["Primer Nombre"], ["Segundo Nombre"], ["Apellido"], ["Segundo Apellido"], ["Email"], ["Telefono"], ["Pais"], ["Segundo Apellido"], ["Ciudad de Residencia"], ["Area de Voluntariado"], ["Estudios"], ["Institucion Educativa"], ["Semestre"], , ["¿Donde nos conociste?"]])
     })
 
-app.post('/api/form', Bpar, csrfProtect, createForm)
+app.post('/api/form', Bpar, csrfProtect, (req, res) => { createForm(req, res) })
 
 app.use("/api", Router);
 app.use("/api", pagesRouter)
