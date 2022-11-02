@@ -241,7 +241,8 @@ const formulario = {
       const formularios = await personas.findAll()
 
       class Personas {
-        constructor(ePrimerNombre, segundoNombre, apellido, segundoApellido, email, telefono, pais, ciudadDeResidencia, areaVoluntario, estudios, institucionEducativa, semestre, medio) {
+        constructor(id, ePrimerNombre, segundoNombre, apellido, segundoApellido, email, telefono, pais, ciudadDeResidencia, areaVoluntario, estudios, institucionEducativa, semestre, medio) {
+          this.id = id;
           this.primerNombre = ePrimerNombre;
           this.segundoNombre = segundoNombre;
           this.apellido = apellido;
@@ -312,7 +313,7 @@ const formulario = {
 
       const formulariosDes = []
       for (let i = 0; i < primerNombre.length; i++) {
-        const dataValues = new Personas(primerNombre[i], segundoNombre[i], apellido[i], segundoApellido[i], email[i], telefono[i], pais[i], ciudadDeResidencia[i], areaVoluntario[i], estudios[i], institucionEducativa[i], semestre[i], medio[i]);
+        const dataValues = new Personas(id[i], primerNombre[i], segundoNombre[i], apellido[i], segundoApellido[i], email[i], telefono[i], pais[i], ciudadDeResidencia[i], areaVoluntario[i], estudios[i], institucionEducativa[i], semestre[i], medio[i]);
         formulariosDes.push(data = dataValues)
 
       }
