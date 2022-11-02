@@ -275,48 +275,48 @@ const formulario = {
 
 
       for (let i = 0; i < formularios.length; i++) {
-        var id1 = formularios[i].dataValues.id;
+        const id1 = formularios[i].dataValues.id;
         id.push(id1)
-        var Nombre1 = cryptr.decrypt(formularios[i].dataValues.primerNombre);
+        const Nombre1 = cryptr.decrypt(formularios[i].dataValues.primerNombre);
         primerNombre.push(Nombre1)
-        var Nombre2 = cryptr.decrypt(formularios[i].dataValues.segundoNombre);
+        const Nombre2 = cryptr.decrypt(formularios[i].dataValues.segundoNombre);
         segundoNombre.push(Nombre2)
-        var apellido1 = cryptr.decrypt(formularios[i].dataValues.apellido);
+        const apellido1 = cryptr.decrypt(formularios[i].dataValues.apellido);
         apellido.push(apellido1)
-        var apellido2 = cryptr.decrypt(formularios[i].dataValues.segundoApellido);
+        const apellido2 = cryptr.decrypt(formularios[i].dataValues.segundoApellido);
         segundoApellido.push(apellido2)
-        var emailDes = cryptr.decrypt(formularios[i].dataValues.email);
+        const emailDes = cryptr.decrypt(formularios[i].dataValues.email);
         email.push(emailDes)
-        var telefonoDes = formularios[i].dataValues.telefono;
+        const telefonoDes = formularios[i].dataValues.telefono;
         telefono.push(telefonoDes)
-        var pais1 = cryptr.decrypt(formularios[i].dataValues.pais);
+        const pais1 = cryptr.decrypt(formularios[i].dataValues.pais);
         pais.push(pais1)
-        var ciudadDeResidencia1 = cryptr.decrypt(formularios[i].dataValues.ciudadDeResidencia);
+        const ciudadDeResidencia1 = cryptr.decrypt(formularios[i].dataValues.ciudadDeResidencia);
         ciudadDeResidencia.push(ciudadDeResidencia1)
-        var areaVoluntario1 = cryptr.decrypt(formularios[i].dataValues.areaVoluntario);
+        const areaVoluntario1 = cryptr.decrypt(formularios[i].dataValues.areaVoluntario);
         areaVoluntario.push(areaVoluntario1)
-        var estudios1 = cryptr.decrypt(formularios[i].dataValues.estudios);
+        const estudios1 = cryptr.decrypt(formularios[i].dataValues.estudios);
         estudios.push(estudios1)
-        var institucionEducativa1 = cryptr.decrypt(formularios[i].dataValues.institucionEducativa);
+        const institucionEducativa1 = cryptr.decrypt(formularios[i].dataValues.institucionEducativa);
         institucionEducativa.push(institucionEducativa1)
-        var semestre1 = formularios[i].dataValues.semestre;
+        const semestre1 = formularios[i].dataValues.semestre;
         semestre.push(semestre1)
-        var medio1 = cryptr.decrypt(formularios[i].dataValues.medio);
+        const medio1 = cryptr.decrypt(formularios[i].dataValues.medio);
         medio.push(medio1)
 
 
 
       }
 
-      console.log(primerNombre);
+
 
       const formulariosDes = []
       for (let i = 0; i < primerNombre.length; i++) {
-        const dataValues = new Personas(primerNombre[i], segundoNombre[i], apellido[i], email[i], telefono[i], pais[i], ciudadDeResidencia[i], areaVoluntario[i], estudios[i], institucionEducativa[i], semestre[i], medio[i]);
+        const dataValues = new Personas(primerNombre[i], segundoNombre[i], apellido[i], segundoApellido[i], email[i], telefono[i], pais[i], ciudadDeResidencia[i], areaVoluntario[i], estudios[i], institucionEducativa[i], semestre[i], medio[i]);
         formulariosDes.push(data = dataValues)
 
       }
-      console.log(formulariosDes);
+
 
       res.json(formulariosDes)
     } catch (error) {
