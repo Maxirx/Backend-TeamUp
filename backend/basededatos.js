@@ -11,7 +11,7 @@ const {
 } = process.env;
 
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${PORTDB}/${DB_NAME}?ssl=no-verify`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${PORTDB}/${DB_NAME}`, {
     logging: false,
     native: false,
 });
