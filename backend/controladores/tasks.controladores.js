@@ -1,8 +1,11 @@
 const { personas } = require("../basededatos")
 const nodemailer = require("nodemailer");
+const multer = require("multer")
 
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotallySecretKey');
+
+
 
 const sendEmail = async (email) => {
   const transporter = nodemailer.createTransport({
@@ -241,37 +244,32 @@ const formulario = {
       const formularios = await personas.findAll()
 
       class Personas {
-        constructor(id, ePrimerNombre, segundoNombre, apellido, segundoApellido, email, telefono, pais, ciudadDeResidencia, areaVoluntario, estudios, institucionEducativa, semestre, medio) {
+        constructor(id, ePrimerNombre, apellido, email, telefono, pais, celular, areaVoluntario, carrera, medio) {
           this.id = id;
           this.primerNombre = ePrimerNombre;
-          this.segundoNombre = segundoNombre;
+
           this.apellido = apellido;
-          this.segundoApellido = segundoApellido;
+
           this.email = email;
           this.telefono = telefono;
           this.pais = pais;
-          this.ciudadDeResidencia = ciudadDeResidencia;
+          this.celular = celular;
           this.areaVoluntario = areaVoluntario;
-          this.estudios = estudios;
-          this.institucionEducativa = institucionEducativa;
-          this.semestre = semestre;
+          this.carrera = carrera;
+
           this.medio = medio;
 
         }
       }
       const id = [];
       const primerNombre = [];
-      const segundoNombre = [];
       const apellido = [];
-      const segundoApellido = [];
       const email = [];
       const telefono = [];
       const pais = [];
-      const ciudadDeResidencia = [];
+      const celular = [];
       const areaVoluntario = [];
-      const estudios = [];
-      const institucionEducativa = [];
-      const semestre = [];
+      const carrera = [];
       const medio = [];
 
 
@@ -280,28 +278,23 @@ const formulario = {
         id.push(id1)
         const Nombre1 = cryptr.decrypt(formularios[i].dataValues.primerNombre);
         primerNombre.push(Nombre1)
-        const Nombre2 = cryptr.decrypt(formularios[i].dataValues.segundoNombre);
-        segundoNombre.push(Nombre2)
+
         const apellido1 = cryptr.decrypt(formularios[i].dataValues.apellido);
         apellido.push(apellido1)
-        const apellido2 = cryptr.decrypt(formularios[i].dataValues.segundoApellido);
-        segundoApellido.push(apellido2)
+
         const emailDes = cryptr.decrypt(formularios[i].dataValues.email);
         email.push(emailDes)
         const telefonoDes = formularios[i].dataValues.telefono;
         telefono.push(telefonoDes)
         const pais1 = cryptr.decrypt(formularios[i].dataValues.pais);
         pais.push(pais1)
-        const ciudadDeResidencia1 = cryptr.decrypt(formularios[i].dataValues.ciudadDeResidencia);
-        ciudadDeResidencia.push(ciudadDeResidencia1)
+        const celular1 = cryptr.decrypt(formularios[i].dataValues.celular);
+        celular.push(celular1)
         const areaVoluntario1 = cryptr.decrypt(formularios[i].dataValues.areaVoluntario);
         areaVoluntario.push(areaVoluntario1)
-        const estudios1 = cryptr.decrypt(formularios[i].dataValues.estudios);
-        estudios.push(estudios1)
-        const institucionEducativa1 = cryptr.decrypt(formularios[i].dataValues.institucionEducativa);
-        institucionEducativa.push(institucionEducativa1)
-        const semestre1 = formularios[i].dataValues.semestre;
-        semestre.push(semestre1)
+        const carrera1 = cryptr.decrypt(formularios[i].dataValues.carrera);
+        carrera.push(carrera1)
+
         const medio1 = cryptr.decrypt(formularios[i].dataValues.medio);
         medio.push(medio1)
 
@@ -313,7 +306,7 @@ const formulario = {
 
       const formulariosDes = []
       for (let i = 0; i < primerNombre.length; i++) {
-        const dataValues = new Personas(id[i], primerNombre[i], segundoNombre[i], apellido[i], segundoApellido[i], email[i], telefono[i], pais[i], ciudadDeResidencia[i], areaVoluntario[i], estudios[i], institucionEducativa[i], semestre[i], medio[i]);
+        const dataValues = new Personas(id[i], primerNombre[i], apellido[i], email[i], telefono[i], pais[i], celular[i], areaVoluntario[i], carrera[i], medio[i]);
         formulariosDes.push(data = dataValues)
 
       }
@@ -333,46 +326,37 @@ const formulario = {
     try {
       const {
         primerNombre,
-        segundoNombre,
         apellido,
-        segundoApellido,
         email,
-        telefono,
+        celular,
         pais,
-        ciudadDeResidencia,
+        telefono,
+        carrera,
         areaVoluntario,
-        estudios,
-        institucionEducativa,
-        semestre,
-        medio
+        medio,
       } = req.body
       console.log(primerNombre);
       const eprimerNombre = cryptr.encrypt(primerNombre);
-      const esegundoNombre = cryptr.encrypt(segundoNombre);
       const eapellido = cryptr.encrypt(apellido);
-      const esegundoApellido = cryptr.encrypt(segundoApellido);
       const eemail = cryptr.encrypt(email);
-
+      const ecelular = cryptr.encrypt(celular);
       const epais = cryptr.encrypt(pais);
-      const eciudadDeResidencia = cryptr.encrypt(ciudadDeResidencia);
+      const etelefono = cryptr.encrypt(telefono);
       const eareaVoluntario = cryptr.encrypt(areaVoluntario);
-      const eestudios = cryptr.encrypt(estudios);
-      const einstitucionEducativa = cryptr.encrypt(institucionEducativa);
-
+      const ecarrera = cryptr.encrypt(carrera);
       const emedio = cryptr.encrypt(medio);
+
+
       const nuevaPersona = await personas.create({
         primerNombre: eprimerNombre,
-        segundoNombre: esegundoNombre,
         apellido: eapellido,
-        segundoApellido: esegundoApellido,
+        celular: ecelular,
         email: eemail,
-        telefono: telefono,
+        telefono: etelefono,
         pais: epais,
         ciudadDeResidencia: eciudadDeResidencia,
         areaVoluntario: eareaVoluntario,
-        estudios: eestudios,
-        institucionEducativa: einstitucionEducativa,
-        semestre: semestre,
+        carrera: ecarrera,
         medio: emedio
       })
       await sendEmail(email);

@@ -1,7 +1,10 @@
 
 *.html
 !important
+*.zip
+!important
 
 #dependencies
 /node_modules
 .env
+.zip

@@ -12,18 +12,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        segundoNombre: {
-            type: DataTypes.STRING,
 
-        },
         apellido: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        segundoApellido: {
-            type: DataTypes.STRING,
 
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false
@@ -36,7 +30,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
 
         },
-        ciudadDeResidencia: {
+        celular: {
             type: DataTypes.STRING,
 
         },
@@ -44,18 +38,11 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        estudios: {
+        carrera: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        institucionEducativa: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        semestre: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
+
         medio: {
             type: DataTypes.STRING,
 
